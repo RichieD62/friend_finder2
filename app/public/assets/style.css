@@ -1,8 +1,16 @@
-#homeHeader{
+.header{
     margin-top: 25px;
 }
 
 #homeCardRow{
     margin-top: 50px;
     margin-right: 100px;
+}
+
+#cardResultsArea{
+    margin-top: 50px;
+}
+
+.surveyQuestionSpacing{
+    margin: 15px;
 }

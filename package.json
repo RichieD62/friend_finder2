@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/RichieD62/friend_finder2#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "mongoose": "^5.4.19",
     "path": "^0.12.7"
   }
 }
