@@ -1,5 +1,4 @@
 var express = require("express");
-var path = require("path");
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,5 +22,5 @@ require ("./app/routing/htmlRoutes")(app);
 
 
 app.listen(PORT, function(){
-    console.log("Listening on PORT" + PORT);
+    console.log("Listening on PORT " + PORT);
 })
