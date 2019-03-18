@@ -1,26 +1,34 @@
-var express = require("express");
-var bodyParser = require('body-parser');
+//Requiring Express
+const express = require("express");
+const app = express();
+
+//Require Body-Parser Middleware
+const bodyParser = require('body-parser');
+
+//Defining PORT
+let PORT = process.env.PORT || 3000;
+
+//Requiring Routes
+let apiRoutes = require("./app/routing/apiRoutes")
+let htmlRoutes = require("./app/routing/htmlRoutes")
+
+//MiddleWare
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-var app = express();
-var PORT = process.env.PORT || 3000;
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var mongoose = require('mongoose')
+//Using Routes
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
-var dbName = "friendDatabase";
-
+//MongoDB Setup
+const mongoose = require('mongoose')
+const dbName = "friendDatabase";
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/" + dbName;
-
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true})
 
-require ("./app/routing/apiRoutes")(app);
-require ("./app/routing/htmlRoutes")(app);
-
-
+//Creating app.listen to run Server
 app.listen(PORT, function(){
     console.log("Listening on PORT " + PORT);
 })
