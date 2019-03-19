@@ -1,12 +1,12 @@
-var db = require("../model/friends")
+var db = require("../model/friends.js")
 var express = require("express")
 var router = express.Router()
 
 
 //Get all friends in database
-router.get("/friends", function (req, res) {
-    db.Friend.find({})
-        .then(function (dbFriend) {
+router.get("/friends", (req, res) => {
+    db.find({})
+        .then(function(dbFriend) {
             res.json(dbFriend)
         })
         .catch(function (err) {
@@ -14,11 +14,13 @@ router.get("/friends", function (req, res) {
         })
 })
 
-router.post("/friends", function (req, res) {
+//Create a new friend
+//localhost:3000/friends
+router.post("/friends", (req, res) => {
     console.log(req.body)
     db.Friend.create(req.body)
-        .then(function (dbFriend) {
-            res.json(dbFriend)
+        .then(function(dbFriend) {
+           res.json(dbFriend)
         })
         .catch(function (err) {
             res.json(err)

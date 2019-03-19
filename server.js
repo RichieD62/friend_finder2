@@ -1,6 +1,11 @@
 //Requiring Express
 const express = require("express");
 const app = express();
+const path = require("path");
+
+//Static Files
+app.use("/public", express.static(__dirname + "/public/"));
+
 
 //Require Body-Parser Middleware
 const bodyParser = require('body-parser');
@@ -15,10 +20,6 @@ let htmlRoutes = require("./app/routing/htmlRoutes")
 //MiddleWare
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-//Using Routes
 app.use(apiRoutes);
 app.use(htmlRoutes);
 

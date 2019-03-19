@@ -3,15 +3,15 @@ var express = require("express")
 var router = express.Router()
 
     router.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/home.html"))
+        res.sendFile(path.join(__dirname, "../views/friends.html"))
     })
 
     router.get("/survey", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/survey.html"))
+        res.sendFile(path.join(__dirname, "../views/survey.html"))
     })
 
     router.get("/friends", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/friends.html"))
+        res.sendFile(path.join(__dirname, "../views/friends.html"))
     })
 
     module.exports = router

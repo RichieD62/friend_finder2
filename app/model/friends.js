@@ -14,11 +14,13 @@ var FriendSchema = new Schema({
     },
 
     occupation: {
-        type: String
+        type: String,
+        trim: true
     },
 
     picture: {
-        type: String
+        type: String,
+        trim: true
     },
 
     answer1:{
@@ -60,6 +62,11 @@ var FriendSchema = new Schema({
     answer10:{
         type: Number
     },
+
+    inDB:{
+        type: Boolean,
+        default: true
+    }
 })
 
 var Friend = mongoose.model("Friend", FriendSchema);
