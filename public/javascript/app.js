@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     // $.getJSON("/friend", function (dbReturnInfo) {
 
@@ -33,29 +33,28 @@ $(document).ready(function() {
             occupation: occupation,
             photo: photo,
             scores: [
-                item1,
-                item2,
-                item3,
-                item4,
-                item5,
-                item6,
-                item7,
-                item8,
-                item9,
-                item10
+                parseInt(item1),
+                parseInt(item2),
+                parseInt(item3),
+                parseInt(item4),
+                parseInt(item5),
+                parseInt(item6),
+                parseInt(item7),
+                parseInt(item8),
+                parseInt(item9),
+                parseInt(item10)
             ]
         }
 
         console.log(newFriendObj);
 
-        // $.ajax({
-        //     method: "POST",
-        //     url: "/friends",
-        //     data: newFriendObj
-        // })
-        // .then(function(data) {
-        //     console.log(data)
-        // });
+        var currentURL = window.location.origin;
+
+        $.post(currentURL + "/friends", newFriendObj, function (res) {
+            console.log(res)
+        })
+
     })
 
 })
+

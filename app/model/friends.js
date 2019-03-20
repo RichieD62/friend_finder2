@@ -23,44 +23,8 @@ var FriendSchema = new Schema({
         trim: true
     },
 
-    answer1:{
-        type: Number
-    },
-
-    answer2:{
-        type: Number
-    },
-
-    answer3:{
-        type: Number
-    },
-
-    answer4:{
-        type: Number
-    },
-
-    answer5:{
-        type: Number
-    },
-
-    answer6:{
-        type: Number
-    },
-
-    answer7:{
-        type: Number
-    },
-
-    answer8:{
-        type: Number
-    },
-
-    answer9:{
-        type: Number
-    },
-
-    answer10:{
-        type: Number
+    scores: {
+        type: Array
     },
 
     inDB:{

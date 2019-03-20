@@ -18,8 +18,10 @@ router.get("/friends", (req, res) => {
 //localhost:3000/friends
 router.post("/friends", (req, res) => {
     console.log(req.body)
-    db.Friend.create(req.body)
+    db.create(req.body)
         .then(function(dbFriend) {
+            console.log("foo")
+            console.log(dbFriend)
            res.json(dbFriend)
         })
         .catch(function (err) {
