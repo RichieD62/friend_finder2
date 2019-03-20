@@ -48,11 +48,20 @@ $(document).ready(function () {
 
         console.log(newFriendObj);
 
-        var currentURL = window.location.origin;
-
-        $.post(currentURL + "/friends", newFriendObj, function (res) {
-            console.log(res)
+        $.ajax({
+            type: 'POST',
+            url: '/friends',
+            data: newFriendObj,
+            success: function(res){
+                console.log(res)
+            },
+            error: function(error) {
+                console.log(error)
+            }
         })
+        // $.post(currentURL + "/friends", newFriendObj, function (res) {
+        //     console.log(res)
+        // })
 
     })
 
