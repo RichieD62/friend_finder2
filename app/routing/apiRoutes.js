@@ -4,10 +4,12 @@ var router = express.Router()
 
 
 //Get all friends in database
-router.get("/friends", (req, res) => {
+router.get("/api/friends", (req, res) => {
     db.find({})
         .then(function(dbFriend) {
-            res.json(dbFriend)
+            console.log("foo")
+            console.log(dbFriend)
+            res.send(dbFriend)
         })
         .catch(function (err) {
             res.json(err)
