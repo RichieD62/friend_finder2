@@ -6,9 +6,7 @@ var router = express.Router()
 //Get all friends in database
 router.get("/api/friends", (req, res) => {
     db.find({})
-        .then(function(dbFriend) {
-            console.log("foo")
-            console.log(dbFriend)
+        .then(function (dbFriend) {
             res.send(dbFriend)
         })
         .catch(function (err) {
@@ -19,20 +17,50 @@ router.get("/api/friends", (req, res) => {
 //Create a new friend
 //localhost:3000/friends
 router.post("/friends", (req, res) => {
-    console.log(req.body)
-    db.create(req.body)
-        .then(function(dbFriend) {
-            console.log("foo")
-            console.log(dbFriend)
-           res.json(dbFriend)
+
+    //Define Variables
+    var matchName = '';
+    var matchPicture = '';
+    var totalDifference;
+    var bestDifference;
+    var newFriend = req.body
+
+    // router.get("/api/friends", (req, res) => {
+    //     db.find({})
+    //         .then(function (dbFriend) {
+    //             console.log(`Here is your friends list bish: ${dbFriend}`)
+    //             res.send(dbFriend)
+    //         })
+    //         .catch(function (err) {
+    //             res.json(err)
+    //         })
+    // })
+
+    console.log(`line 41 ${friendsList}`)
+
+    console.log(`NEW FRIEND ~~~~~~ ${newFriend.scores}`)
+
+    // for (var i = 0; i < dbFriend.length; i++) {
+    //     totalDifference = 0;
+
+    //     for (var j = 0; j < dbFriend.scores.length; i++) {
+    //         totalDifference += Math.abs((parseInt(dbFriend[i].scores) - parseInt(newFriend.scores)))
+    //         console.log(totalDifference)
+    //     }
+
+
+
+    // }
+
+    //Enter into Database
+    db.create(newFriend)
+
+        .then(function (dbFriend) {
+            res.json(dbFriend)
         })
         .catch(function (err) {
             res.json(err)
         })
-})
-
-router.get("/test/:bologna", (req, res) => {
-    res.send(`Test route was hit. Your bologna is ${req.params.bologna}`)
 })
 
 module.exports = router
