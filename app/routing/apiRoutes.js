@@ -23,18 +23,10 @@ router.post("/friends", (req, res) => {
     var matchPicture = '';
     var totalDifference;
     var bestDifference;
-    var newFriend = req.body
+    var newFriend = req.body;
+    var friendsList = [];
 
-    // router.get("/api/friends", (req, res) => {
-    //     db.find({})
-    //         .then(function (dbFriend) {
-    //             console.log(`Here is your friends list bish: ${dbFriend}`)
-    //             res.send(dbFriend)
-    //         })
-    //         .catch(function (err) {
-    //             res.json(err)
-    //         })
-    // })
+    //NEED TO FIGURE OUT HOW TO GET THE FRIENDS LIST OUT OF THE FRONT END GET REQUEST
 
     console.log(`line 41 ${friendsList}`)
 

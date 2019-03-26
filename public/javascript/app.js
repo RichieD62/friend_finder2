@@ -1,13 +1,14 @@
 $(document).ready(function () {
 
 
+
     //Front End GET Request
     $.ajax({
         type: "GET",
         url: "/api/friends",
         success: function (data) {
-            var friendsList = data
-            console.log("Friends List: ", friendsList)
+            var returnData = data
+            console.log("Friends List: ", data)
 
 
             for (var i = 0; i < data.length; i++) {
@@ -22,6 +23,8 @@ $(document).ready(function () {
                     </div>`
                 )
             }
+
+            return (returnData)
         },
         error: function (err) {
             console.log(err)
@@ -71,7 +74,6 @@ $(document).ready(function () {
             ]
         }
 
-        console.log(newFriendObj);
 
         $.ajax({
             type: 'POST',
